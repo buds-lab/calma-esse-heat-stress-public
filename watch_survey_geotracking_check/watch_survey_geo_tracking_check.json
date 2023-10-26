@@ -1,0 +1,306 @@
+{
+  "survey_name": "GeoTracking Check",
+  "survey_id": "geotracking_check",
+  "survey": [
+    {
+      "question": "Select the study variant",
+      "question_id": "q_study",
+      "response_options": [
+        {
+          "text": "Run A",
+          "icon": "person_walking",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_study_amount"
+        },
+        {
+          "text": "Run B",
+          "icon": "person_walking",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_study_amount"
+        }
+      ]
+    },
+    {
+      "question": "How many surveys are you going to do this run?",
+      "question_id": "q_study_amount",
+      "response_options": [
+        {
+          "text": "Sparse",
+          "icon": "text_a_little",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_study_setpoint"
+        },
+        {
+          "text": "Dense",
+          "icon": "text_a_lot",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_study_setpoint"
+        }
+      ]
+    },
+    {
+      "question": "At which setpoint of your run are you currently at?",
+      "question_id": "q_study_setpoint",
+      "response_options": [
+        {
+          "text": "Start",
+          "icon": "person_walking",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_area"
+        },
+        {
+          "text": "Middle",
+          "icon": "person_waving",
+          "icon_background_color": "#b8be10",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_area"
+        },
+        {
+          "text": "End",
+          "icon": "person_standing",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_area"
+        }
+      ]
+    },
+    {
+      "question": "Where are you?",
+      "question_id": "q_location_area",
+      "response_options": [
+        {
+          "text": "Indoor",
+          "icon": "space_indoor",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_time"
+        },
+        {
+          "text": "Outdoor",
+          "icon": "sun",
+          "icon_background_color": "#b8be10",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_time"
+        },
+        {
+          "text": "Semi-Outdoor",
+          "icon": "text_partially",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_location_time"
+        }
+      ]
+    },
+    {
+      "question": "How long are you staying at the location after the survey?",
+      "question_id": "q_location_time",
+      "response_options": [
+        {
+          "text": "I am not staying",
+          "icon": "text_no",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_network"
+        },
+        {
+          "text": "about 3min",
+          "icon": "text_yes",
+          "icon_background_color": "#b8be10",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_network"
+        },
+        {
+          "text": "about 5min",
+          "icon": "text_yes",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_network"
+        }
+      ]
+    },
+    {
+      "question": "What is currently the main connection of your phone?",
+      "question_id": "q_connection_network",
+      "response_options": [
+        {
+          "text": "WiFi",
+          "icon": "place_holder",
+          "icon_background_color": "#44b51b",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_people"
+        },
+        {
+          "text": "Mobile Data",
+          "icon": "place_holder",
+          "icon_background_color": "#7bba17",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_people"
+        },
+        {
+          "text": "No connection",
+          "icon": "x",
+          "icon_background_color": "#bb7011",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_connection_people"
+        }
+      ]
+    },
+    {
+      "question": "How many people can you see around you in a 25m proximity?",
+      "question_id": "q_connection_people",
+      "response_options": [
+        {
+          "text": "less than 5",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_traversion"
+        },
+        {
+          "text": "about 10",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_traversion"
+        },
+        {
+          "text": "about 25",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_traversion"
+        },
+        {
+          "text": "more than 30",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_traversion"
+        }
+      ]
+    },
+    {
+      "question": "Where have you been mainly traversing through since the last survey?",
+      "question_id": "q_envi_traversion",
+      "response_options": [
+        {
+          "text": "outdoors",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_sky"
+        },
+        {
+          "text": "indoors",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_sky"
+        },
+        {
+          "text": "semioutdoors",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_sky"
+        },
+        {
+          "text": "nothing",
+          "icon": "x",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_sky"
+        }
+      ]
+    },
+    {
+      "question": "How would you describe the amount of cloud cover right now?",
+      "question_id": "q_envi_sky",
+      "response_options": [
+        {
+          "text": "clear sky",
+          "icon": "sun",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_rain"
+        },
+        {
+          "text": "slightly covered",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_rain"
+        },
+        {
+          "text": "covered",
+          "icon": "cloud_rain_lighting",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": "q_envi_rain"
+        }
+      ]
+    },
+    {
+      "question": "How much do rain puddles cover the nearby area?",
+      "question_id": "q_envi_rain",
+      "response_options": [
+        {
+          "text": "no coverage",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": ""
+        },
+        {
+          "text": "slightly covered",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": ""
+        },
+        {
+          "text": "plentiful covered",
+          "icon": "place_holder",
+          "icon_background_color": "#FFFFFF",
+          "use_sf_symbols": false,
+          "sf_symbols_color": "#000000",
+          "next_question_id": ""
+        }
+      ]
+    }
+  ]
+}
