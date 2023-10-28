@@ -1,5 +1,5 @@
 # calma-esse-heat-stress-internal
-Private repository for the Cozie-Apple deployment lead by Ben Gottkehaskamp.
+**Public** repository for the Cozie-Apple deployment lead by Ben Gottkehaskamp.
 
 ## Table Of Content
 
