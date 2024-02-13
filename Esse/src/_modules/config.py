@@ -1,0 +1,2 @@
+#Settings
+API_KEY = 'RG2BjEFkzhmLUmNR0LdbaAAsF75EsWl6n07N2jOc'
