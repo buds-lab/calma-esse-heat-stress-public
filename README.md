@@ -10,6 +10,7 @@
       <ul>
         <li><a href="#Calma">Calma</a></li>
         <li><a href="#Esse">Esse</a></li>
+	<li><a href="#ThermalWalk">ThermalWalk</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -37,24 +38,47 @@ This project is part of a Masterthesis of [Ben Gottkehaskamp](https://github.com
 
 #### Calma debugging
 
-need to fill up
+need to fill up.
+
+Data Collection: ![100%](https://progress-bar.dev/85)
+Documentation: ![0%](https://progress-bar.dev/0)
 
 #### Geo-location testing
 This survey serves as a validation tool for assessing the geospatial capabilities of Cozie. Its purpose is to conduct multiple passes along specific routes to identify discrepancies in longitude and latitude data, while also incorporating supplementary metadata for in-depth analysis of various influences. The primary focus is on outdoor locations and travel patterns following periods spent indoors. Besides the retreived Cozie data the following features are available in form of survey data: `tag/q_location_area` `tag/q_location_time` `tag/q_connection_network` `tag/q_connection_people` `tag/q_envi_traversion` `tag/q_envi_sky` `tag/q_envi_rain`, as well as some additional features that categorize the run like `tag/q_study` `tag/q_study_amount` `tag/q_study_setpoint`.
 
 ### Esse
 
+Esse is the official study. Need to fill up.
+
+Data Collection: ![85%](https://progress-bar.dev/85)
+Dashboard: ![65%](https://progress-bar.dev/65) - need Code refactoring
+Json: ![100%](https://progress-bar.dev/100)
+Data Analysis: Data Collection: ![0%](https://progress-bar.dev/0)
+Onboarding Testing: ![100%](https://progress-bar.dev/100)
+Documentation: ![40%](https://progress-bar.dev/40)
+
 
 ### Built With
 
+Languages:
 [![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)](https://www.python.org/)
+[![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+
+Libaries:
 [![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)]()
+[![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)]()
+[![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)]()
+Geopandas
+request 
+coziepy
+add more
 
 ## Getting Started
 
 ### Prerequisites
 - Create and activate a virtual Python environment.
-- Install the `requirements.txt`:
+- Install the `requirements.txt`: (are currently not up to date!)
 ```py
 pip install -r /path/to/requirements.txt 
 ```
@@ -80,9 +104,9 @@ seaborn       ==0.12.2
  - Follow the Prerequisites steps
  - Setup the config.py file wit the following inputs under Esse\src\config.py
 
- '''py
+ ```py
  API_KEY  = #Enter Your API Key here. It is provided by the [Cozie](https://cozie-apple.app). Please contact us at cozie.app@gmail.com if you need one. 
- '''
+ ```
 
 ## License
 
@@ -93,3 +117,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Thank you for your contributions and support in this project:
 
 - [Ben Gottkehaskamp](https://github.com/benterich) (creator)
+- [Mario Frei](https://github.com/mariofrei)

@@ -73,8 +73,9 @@ def folder_variable_setup(man_identifier=None):
     directory_data_raw_path = os.path.join(parent_directory_path, 'data\\raw') 
     directory_data_processed_path = os.path.join(parent_directory_path, 'data\\processed')
     directory_report_path = os.path.join(parent_directory_path, 'report')
+    directory_data_ws_path = os.path.join(parent_directory_path, 'data\\watch_surveys') 
     
-    return directory_path, directory_data_raw_path, directory_data_processed_path, directory_report_path, identifier
+    return directory_path, directory_data_raw_path, directory_data_processed_path, directory_report_path, identifier, directory_data_ws_path
 
 
 def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEKS, API_KEY):
@@ -92,7 +93,7 @@ def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEK
                     shutil.copyfileobj(r.raw, f)
 
             with open('cozie.zip', 'rb') as f:
-                df = pd.read_csv(f, compression={'method': 'zip', 'archive_name': 'sample.csv'})
+                df = pd.read_csv(f, compression={'method': 'zip', 'archive_name': 'sample.csv'}, low_memory=False)
 
             df = df.drop(columns=['Unnamed: 0'])
             df['index'] = pd.to_datetime(df['index'])
