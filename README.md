@@ -57,6 +57,40 @@ Data Analysis: Data Collection: ![0%](https://progress-bar.dev/0)
 Onboarding Testing: ![100%](https://progress-bar.dev/100)
 Documentation: ![40%](https://progress-bar.dev/40)
 
+#### Scoria
+
+The file 'Scoria.py' should be executed via the terminal window in order to be able to decrypt the Scoria data. This file has its own dependencies, only the decrypted data will be used in the other source code files.
+
+##### Prerequisites
+Install at least SQLITE Versoin 3.37.0 due to problems with [STRICT KEYWORD](https://www.sqlite.org/stricttables.html), I used an testet it with [SQlite Version 3.38.2](https://www.sqlite.org/releaselog/3_38_2.html) and higher Version should work as well.
+
+Move your '.sqlite' files to the 'sqlite3.exe' location from the installation, in my case it is under C:\sqlite\Library\bin. Copy the file path directory as text.
+
+Then, open the terminal on windows with 'windows' + 'Key-R'
+
+Locate yourself and run the python 'Scoria.py' file with:
+```console
+python 'path/Scoria.py'
+```
+
+The program task you to enter a file_id, which is the filename without the extension. Do this for every file you want to decrypt:
+```console
+Enter file ID (or 'exit' to quit): esse07_03_Scoria_Export_2024-03-12_13-51-19
+```
+
+The result should look something like this if successful and a result 'filename.csv':
+```console
+C:/sqlite/Library/bin/esse07_03_Scoria_Export_2024-03-12_13-51-19
+C:/sqlite/Library/bin/sqlite3.exe
+.open C:/sqlite/Library/bin/esse07_03_Scoria_Export_2024-03-12_13-51-19.sqlite
+.mode csv
+.headers on
+.once C:/sqlite/Library/bin/esse07_03_Scoria_Export_2024-03-12_13-51-19.csv
+SELECT * FROM location;
+.quit
+```
+
+
 
 ### Built With
 
