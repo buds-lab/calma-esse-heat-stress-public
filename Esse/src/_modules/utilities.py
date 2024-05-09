@@ -1,10 +1,11 @@
 from all_imports import *
+import _modules
 
 def test1():
     print(" ### test ### ")
     print(os.getcwd())
 
-def print_functions_folder(modules_folder='_modules', ignore_files=['__init__.py']):
+def print_functions_folder(modules_folder: str ='_modules', ignore_files: list[str] =['__init__.py']):
     """
     Prints the functions defined in Python files within a specified folder.
 
@@ -37,7 +38,7 @@ def print_functions_folder(modules_folder='_modules', ignore_files=['__init__.py
     pprint(functions_dict)
 
 
-def folder_variable_setup(man_identifier=None):
+def folder_variable_setup(man_identifier = None):
     #TODO: Add all other relevant folder variables and paths
     """The following parts hold the settings for the whole notebook in order to be able to run it. Here is a brief description of the variables needed:
 
@@ -62,7 +63,7 @@ def folder_variable_setup(man_identifier=None):
 
     ### Used for folder organization and reports ###
     if man_identifier is not None and man_identifier.strip():
-        identifier = man_identifier
+        identifier: str = man_identifier
     else:
         identifier = current_datetime.strftime('%Y-%m-%d_%H%M') 
     print(identifier)
@@ -99,7 +100,11 @@ def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEK
             df['index'] = pd.to_datetime(df['index'])
             df = df.set_index('index')
             df.index = df.index.tz_convert(YOUR_TIMEZONE)
-            df.reset_index()
+            df.index = df.index.strftime('%Y-%m-%d %H:%M:%S.%f%z')  # Format the time as desired #####
+
+            df = df.reset_index(drop=False)  # Assign back to df
+            df.rename(columns={'index': 'index_time'}, inplace=True)
+            #Error occurred for participant esse02: Already tz-aware, use tz_convert to convert.
 
             # Define the file path for the CSV
             #csv_filename = f"participant_{ID_PARTICIPANT}.csv"
@@ -112,3 +117,31 @@ def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEK
             print(f"Error occurred for participant {ID_PARTICIPANT}: {str(e)}")
 
     return participant_data
+
+
+def import_scoria_and_add_to_dictionary(scoria_file_paths, dictionary, time_column: str, selected_columns, text_addition: str = 'Scoria_', df_time_column: str = 'timestamp', debug: bool = False):
+    for file_path in scoria_file_paths:
+        print(file_path)
+        df = pd.read_csv(file_path)
+        df[df_time_column] = pd.to_datetime(df[df_time_column], unit='s', origin='unix')
+        df[df_time_column] = df[df_time_column].dt.tz_localize('UTC').dt.tz_convert('Asia/Singapore')
+        df[df_time_column] = df[df_time_column].dt.strftime('%Y-%m-%d %H:%M:%S.%f%z')  # Format the time as desired
+        df.rename(columns={df_time_column: 'index_time'}, inplace=True)
+        renamed_columns = [text_addition + col for col in selected_columns]
+        df.rename(columns={col: text_addition + col for col in selected_columns}, inplace=True)
+        
+        # Retrieve the participant_id
+        filename = os.path.basename(file_path)
+        split_filename = filename.split('_')
+        participant_id = split_filename[0]
+        
+        df['participant_id'] = participant_id
+        
+        # Displaying first 5 rows
+        if debug:
+            display(df.head(5))
+        
+        all_selected_columns = time_column + renamed_columns
+        dictionary = _modules.add_dfdata_to_participant_id_in_dictionary(df, dictionary, participant_id, all_selected_columns)
+
+    return dictionary

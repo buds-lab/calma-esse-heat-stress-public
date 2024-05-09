@@ -28,25 +28,25 @@ def Plot_heatmap_participant_data(participant_data_local, start_date, end_date, 
     filtered_data = []
 
     for participant_id, df in participant_data_local.items():
-        df['timestamp_lambda'] = pd.to_datetime(df['timestamp_lambda']).dt.tz_localize(None)  # Convert to timezone naive
+        df['index_time'] = pd.to_datetime(df['index_time']) # Convert to timezone naive
         
         if operation == 'count':
-            df_resampled = df.resample('D', on='timestamp_lambda').count()
+            df_resampled = df.resample('D', on='index_time').count()
         elif operation == 'sum':
-            df_resampled = df.resample('D', on='timestamp_lambda').sum()
+            df_resampled = df.resample('D', on='index_time').sum()
         elif operation == 'mean':
-            df_resampled = df.resample('D', on='timestamp_lambda').mean()
+            df_resampled = df.resample('D', on='index_time').mean()
         else:
             raise ValueError("Invalid operation. Choose from 'count', 'sum', or 'mean'.")
 
         filtered_count = df_resampled.loc[start_date:end_date, column]
 
         for timestamp, count in filtered_count.items():
-            filtered_data.append({'participant_id': participant_id, 'timestamp_lambda': timestamp, column: count})
+            filtered_data.append({'participant_id': participant_id, 'index_time': timestamp, column: count})
 
     df_filtered = pd.DataFrame(filtered_data)
-    df_filtered['timestamp_lambda'] = df_filtered['timestamp_lambda'].dt.strftime('%d.%m')
-    df_pivoted = df_filtered.pivot(index='participant_id', columns='timestamp_lambda', values=column)
+    #df_filtered['index_time'] = df_filtered['index_time'].dt.strftime('%d.%m')
+    df_pivoted = df_filtered.pivot(index='participant_id', columns='index_time', values=column)
 
     plt.figure(figsize=(12, 6))
     heatmap = sns.heatmap(df_pivoted, annot=True, cmap='YlGnBu', fmt=".1f", linewidths=5, linecolor='white', 

@@ -50,12 +50,72 @@ This survey serves as a validation tool for assessing the geospatial capabilitie
 
 Esse is the official study. Need to fill up.
 
-Data Collection: ![85%](https://progress-bar.dev/85)
-Dashboard: ![65%](https://progress-bar.dev/65) - need Code refactoring
-Json: ![100%](https://progress-bar.dev/100)
-Data Analysis: Data Collection: ![0%](https://progress-bar.dev/0)
-Onboarding Testing: ![100%](https://progress-bar.dev/100)
-Documentation: ![40%](https://progress-bar.dev/40)
+#### Overview of all data column names:
+
+Index column, or main time column is 'time_index'
+
+##### Cozie Data (ws_, ts_, q_)
+Main Variables from Cozie V3:, with ID fields 'id_', watch survey data 'ws_' and time series data 'ts_', questionnaire data 'q_'
+
+| Name     | Description |
+| -------- | ------- |
+| id_participant  | Unique identifier for each participant    |
+| ws_HRV | Heart Rate Variability in ms, provided by Apple HealthKit     |
+| ws/ts_heart_rate    | Heart rate in bpm, provided by Apple HealthKit    |
+| ws/ts_altitude    | Altitude in m    |
+| ws/ts_latitude  | Latitude in °    |
+| ws/ts_longitude  | Longitude in °    |
+| ws/ts_location_accuracy_horizontal  | Horizontal positioning accuracy in m    |
+| ws/ts_location_accuracy_vertical  | Vertical positioning accuracy in m    |
+| ws/ts_oxygen_saturation  | Blood oxygen saturation in % provided by Apple HealthKit    |
+| ws/ts_resting_heart_rate  | 	Resting heart rate in bpm, provided by Apple HealthKit    |
+| ws/ts_stand_time  | Stand time in min?, provided by Apple HealthKit    |
+| ws/ts_step_count  | Number of steps walked, provided by Apple HealthKit.     |
+| ws/ts_walking_distance  | Distance walked in m, provided by Apple HealthKit    |
+| q_ ...    | Have a look at the ws.json file for further columns   |
+
+
+##### Computed Data (c_, tw_, flag_)
+Computed generally have the prefix of 'c_', some are specifically computed for the thermal walk, and have the prefix 'tw_' and flags, showing something is off 'flag_' for checking during the experiment
+
+| Name     | Description |
+| -------- | ------- |
+| c_difference_time_ws  | XX    |
+| c_run_number    | XX    |
+| c_run_change    | XX    |
+| c_ws_step_count    | XX    |
+| c_ws_step_count_intensity    | XX    |
+| c_ws_step_count    | XX    |
+| c_latitude    | XX    |
+| c_longitude    | XX    |
+| c_distance    | XX    |
+| c_movespeed    | XX    |
+| c_flag_difference | XX     |
+| flag_c_movespeed    | XX    |
+| flag_ws_step_count    | XX    |
+| tw_run_number    | XX    |
+
+##### Scoria Data (Scoria_)
+From Scoria have the prefix 'Scoria_'
+
+| Name     | Description |
+| -------- | ------- |
+| Scoria_latitude  | XX   |
+| Scoria_longitude | XX     |
+| Scoria_horizontal_accuracy    | XX    |
+| Scoria_msl_altitude    | XX    |
+| Scoria_ellipsoid_altitude    | XX    |
+| Scoria_story    | XX    |
+| Scoria_speed    | XX    |
+| Scoria_speed_accuracy    | XX    |
+
+
+##### Skintemperature Data (Skintemp_)
+From Scoria have the prefix 'Skintemp_'
+
+| Name     | Description |
+| -------- | ------- |
+| Skintemp_Value  | XX    |
 
 #### Scoria
 
