@@ -135,13 +135,13 @@ def import_scoria_and_add_to_dictionary(scoria_file_paths, dictionary, time_colu
         split_filename = filename.split('_')
         participant_id = split_filename[0]
         
-        df['participant_id'] = participant_id
+        df['id_participant'] = participant_id
         
         # Displaying first 5 rows
         if debug:
             display(df.head(5))
         
-        all_selected_columns = time_column + renamed_columns
+        all_selected_columns = time_column + renamed_columns + ['id_participant']
         dictionary = _modules.add_dfdata_to_participant_id_in_dictionary(df, dictionary, participant_id, all_selected_columns)
 
     return dictionary
