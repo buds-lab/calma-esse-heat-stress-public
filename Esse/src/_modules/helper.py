@@ -1,9 +1,10 @@
 from all_imports import *
 
 def print_log_separator(text: str = 'Separator'):
-    width = 100
+    width = 125
     print(width * '-')
-    print('{: ^{width}}'.format(text, width=width))
+    #print('{: ^{width}}'.format(text, width=width))
+    print(text)
     print(width * '-')
     return
 

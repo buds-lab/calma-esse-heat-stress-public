@@ -1,0 +1,136 @@
+Column Names
+Start Date
+End Date
+Response Type
+IP Address
+Progress
+Duration (in seconds)
+Finished
+Recorded Date
+Response ID
+Recipient Last Name
+Recipient First Name
+Recipient Email
+External Data Reference
+Location Latitude
+Location Longitude
+Distribution Channel
+User Language
+"Experiment tag (for example esse01, provided by the researcher)"
+Year of birth (for example 1995)
+Gender
+Height (cm)
+Weight (kg)
+How many years have you been in Singapore (Example: 2.5 = 2 years and 6 months)?
+Can you say that you are used to the weather in Singapore?
+Can you say that you are satisfied with the weather in Singapore (outdoor weather conditions)?
+Do you suffer from sweating in Singapore?
+Do you enjoy being outdoor in Singapore?
+"What is your estimation of your time you spent outdoor (in hours per day) during the weekdays? 
+(Example: 8 = 8 hours/day)"
+"What is your estimation of your time spent outdoor (in hours per day) during the weekend? 
+(Example: 8 = 8 hours/day)"
+Do you seem to be aware of subtleties in your environment?
+"Are you easily overwhelmed by things like bright lights, strong smells, coarse fabrics, or sirens close by?"
+"Do you have a rich, complex inner life?"
+Do you get rattled when you have a lot to do in a short amount of time?
+Are you deeply moved by the arts or music?
+Are you annoyed when people try to get you to do too many things at once?
+Do you make a point to avoid violent movies and TV shows?
+Do you find it unpleasant to have a lot going on at once?
+Do changes in your life shake you up?
+"Do you notice and enjoy delicate or fine scents, tastes, sounds, works of art?"
+"Are you bothered by intense stimuli, like loud noises or chaotic scenes?"
+"When you must compete or be observed while performing a task, do you become so nervous or shaky that you do much worse than you would otherwise?"
+In most ways my life is close to my ideal.
+The conditions of my life are excellent.
+I am satisfied with my life.
+"So far, I have gotten the important things I want in life."
+"If I could live my life over, I would change almost nothing."
+"Extraverted, enthusiastic"
+"Critical, quarrelsome"
+"Dependable, self-disciplined"
+"Anxious, easily upset"
+"Open to new experience, complex"
+"Reserved, quiet"
+"Sympathetic, warm"
+"Disorganized, careless"
+"Calm, emotionally stable"
+"Conventional, unreactive"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Selected Choice"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Private office - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Open-plan office - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Cubicle office - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Home desk - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Classroom - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Hot-desking office - Text"
+"On an average work week, what types of spaces do you use and how many hours do you spend in each space? Please indicate the number of hours per work week in the text boxes below each space. (Example: Private office: 20, Home desk: 15) - Others (Type of space + hours/week) - Text"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Private office"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Open-plan office"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Cubicle office"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Home desk"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Classroom"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Hot-desking office"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Others (please indicate the type of space in the text box below)"
+"In the space type(s) you mentioned above, generally how satisfied are you with the noise level? (If you did not use a certain space type, indicate 'Not applicable') - Others (please indicate the type of space in the text box below) - Text"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Private office"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Open-plan office"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Cubicle office"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Home desk"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Classroom"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Hot-desking office"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Others"
+"In the space type(s) you mentioned above, generally  how satisfied are you with the sound privacy (ability to have conversations without your neighbours overhearing and vice versa)? (If you did not use a certain space type, indicate 'Not applicable') - Others - Text"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Private office"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Open-plan office"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Cubicle office"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Home desk"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Classroom"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Hot-desking office"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Others"
+"In the space type(s) you mentioned above, generally  satisfied are you with the temperature? (If you did not use a certain space type, indicate 'Not applicable') - Others - Text"
+Do you listen to music or radio (without headphones/earbuds) during work or class?
+Do you use headphones/earbuds to listen to music?
+Do you listen to music using headphones/earbuds when working or studying?
+Are you sensitive to noise?
+How important is a quiet work or study space to you?
+When do you usually wake up?
+When do you usually go to bed?
+Do you take any medications
+Are you currently and/or will you take any medications during the study? - Name of the medication
+Are you currently and/or will you take any medications during the study? - Why do you take this medication?
+Are you currently and/or will you take any medications during the study? - What is your intake interval
+Are you currently and/or will you take any medications during the study? - How long have you been taking this mediation?
+Are you currently and/or will you take any medications during the study? - What was your approximate start date taking this medication?
+Are you currently and/or will you take any medications during the study? - What is the dosage of the medication (in mg)
+Are you currently and/or will you take any additional medications during the study? - Name of the medication
+Are you currently and/or will you take any additional medications during the study? - Why do you take this medication?
+Are you currently and/or will you take any additional medications during the study? - What is your intake interval
+Are you currently and/or will you take any additional medications during the study? - How long have you been taking this mediation?
+Are you currently and/or will you take any additional medications during the study? - What was your approximate start date taking this medication?
+Are you currently and/or will you take any additional medications during the study? - What is the dosage of the medication (in mg)
+Are you currently and/or will you take any additional medications during the study? - Name of the medication.1
+Are you currently and/or will you take any additional medications during the study? - Why do you take this medication?.1
+Are you currently and/or will you take any additional medications during the study? - What is your intake interval.1
+Are you currently and/or will you take any additional medications during the study? - How long have you been taking this mediation?.1
+Are you currently and/or will you take any additional medications during the study? - What was your approximate start date taking this medication?.1
+Are you currently and/or will you take any additional medications during the study? - What is the dosage of the medication (in mg).1
+Have you ever experienced any sideeffects from the abovementioned medications? Please state the medication name and the sideeffects.
+If female: When did you had your last period? (State as date dd.MM)
+If female: How long does your period last on average? (in days)
+"If female: Please rate the intensity of your menstrual period on a scale from 1 to 10, where 1 is very light, and 10 is extremely intense. - Click to write Choice 1"
+Do you exercise on a usual basis?
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Monday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Tuesday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Wednesday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Thursday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Friday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Saturday"
+"On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Sunday"
+On which of those days do you train outdoors? - Monday
+On which of those days do you train outdoors? - Tuesday
+On which of those days do you train outdoors? - Wednesday
+On which of those days do you train outdoors? - Thursday
+On which of those days do you train outdoors? - Friday
+On which of those days do you train outdoors? - Saturday
+On which of those days do you train outdoors? - Sunday

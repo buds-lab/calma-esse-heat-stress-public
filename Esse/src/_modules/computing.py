@@ -1,49 +1,7 @@
 from all_imports import *
 
-# ----------------------------------------------------
-# Time functions
-# ----------------------------------------------------
-## Calculate the time difference
-# ----------------------------------------------------
-#This function calculates the time difference between not NaN Data 
-#in the specified column 'reference_column' and stores it into a 
-#column called c_difference_time_XXXX' with XXXX being an addition 
-#'identifier' that can be manually defined. 
-
-def calculate_time_difference(dictionary: Dict, reference_column: str = 'q_general_location_envi', identifier: str = None, debug: bool = False):
-
-    c_columnname = 'c_difference_time_ws'
-
-    #Check if reference_column exists
-    if reference_column not in dictionary[next(iter(dictionary))].columns:
-        print(f"Failed: The reference column '{reference_column}' does not exist in the DataFrame.")
-        return None  # Return None to indicate failure
-
-    for participant_id, df in dictionary.items():
-        if debug: print(f'Iterating now: {participant_id}')
-        df[c_columnname] = None  # Initialize column with NaT
-        previous_time_ws = None
-
-        for index, row in df.iterrows():
-            if pd.isna(row[reference_column]):
-                continue  # Skip if reference_column is NaN
-
-            current_time_ws = pd.to_datetime(row['index_time'])
-
-            # Calculate time difference if previous_time_ws exists
-            if previous_time_ws is not None:
-                time_difference = current_time_ws - previous_time_ws
-                #df.at[index, c_columnname] = time_difference #also possible but prints out a warning for non compatiabiliy for future pandas versions
-                df.at[index, c_columnname]: int = int(time_difference.total_seconds()) 
-            previous_time_ws = current_time_ws
-            
-
-    if debug:
-        first_participant_key = next(iter(dictionary))
-        print(f'Results of index_time and calculated time difference in seconds for {first_participant_key} in the dictionary, NaN values are removed for presentation')
-        display(dictionary[first_participant_key][dictionary[first_participant_key][c_columnname].notna()][['index_time', 'id_participant', c_columnname]].head(10))
-
-    return dictionary  # type: ignore # Return the modified dictionary
+from .helper import print_log_separator
+from .utilities import DisplayGroupedData
 
 # ----------------------------------------------------
 ## Flag the time difference
@@ -72,45 +30,6 @@ def flag_on_int_threshold(dictionary: Dict, reference_column: str = 'c_differenc
 
     return dictionary # type: ignore
 
-# ----------------------------------------------------
-## Define Run's based on time difference
-# ----------------------------------------------------
-
-def calculate_runs_on_time_difference(dictionary: Dict, reference_time_column, min_threshold: int = 360, max_threshold: int = 1800, debug: bool = False):
-    for participant_id, df in dictionary.items():
-        first_ws_bool = False
-        run_number = 0
-
-        for index, row in df.iterrows():
-            if pd.isna(row[reference_time_column]):
-                df.loc[index, 'c_run_number'] = run_number
-                continue  # Skip if reference_time_column is NaN
-            
-            if not first_ws_bool:
-                first_ws_bool = True
-                df.loc[index, 'c_run_number'] = run_number
-
-            time_difference = df.loc[index, reference_time_column]
-
-            if time_difference is None:
-                df.loc[index, 'c_run_number'] = run_number
-                continue  # Skip if c_difference_time_ws_timedelta is None
-            
-            if max_threshold >= time_difference >= min_threshold:
-                df.loc[index, 'c_run_number'] = run_number
-            else:
-                run_number += 1
-                df.loc[index, 'c_run_number'] = run_number
-                continue
-
-        df['c_run_number'] = df['c_run_number'].astype(int)
-
-    if debug:
-        first_participant_key = next(iter(dictionary))
-        print(f'Results of index_time and calculated time difference in seconds for {first_participant_key} in the dictionary, NaN values are removed for presentation')
-        display(dictionary[first_participant_key][dictionary[first_participant_key][reference_time_column].notna()][['index_time', 'id_participant', reference_time_column, 'c_run_number']].head(10))
-
-        return dictionary # type: ignore
     
 # ----------------------------------------------------
 ## Flag Step Count and determine intensity 
@@ -220,3 +139,184 @@ def calculate_distances(dictionary, reference_column_latitude: str = 'c_latitude
 
     return dictionary
 
+# ----------------------------------------------------
+## Calculate Time Differnece (NEW)
+# ----------------------------------------------------
+# This functions caluclates the time between the reference columns
+
+def ComputeTimeDifference(df: pd.DataFrame, refColumn: str = 'q_general_location_envi', resultColumn: str = 'c_time_difference',
+                            defaultColumns: List[str] = ['index_time'], groupbyColumn: str = 'id_participant', debug: bool = True, size: int = 5):
+
+    print_log_separator(text = '>>> ComputeTimeDifference for [' + refColumn + '] by [' + groupbyColumn + '] to [' + resultColumn  + ']')
+
+    missing_columns = [col for col in [refColumn, groupbyColumn] + defaultColumns if col not in df.columns]
+    if missing_columns:
+        print(f"Failed: The following columns are missing in the DataFrame: {missing_columns}")
+        return
+
+    df[resultColumn] = np.nan
+    previous_time_ws = None
+    previous_id_participant = None
+
+    for index, row in df.iterrows():
+        if pd.isna(row[refColumn]):
+            continue
+
+        current_time_ws = pd.to_datetime(row['index_time'])
+
+        if previous_id_participant != row['id_participant']:
+            previous_time_ws = current_time_ws 
+            df.at[index, resultColumn] = 0
+        else:
+            if previous_time_ws is not None:
+                time_difference = current_time_ws - previous_time_ws
+                df.at[index, resultColumn] = int(time_difference.total_seconds())
+
+        previous_id_participant = row['id_participant']
+        previous_time_ws = current_time_ws 
+
+    if debug:
+        print_log_separator(text = 'Debugging')
+        print(f'Results of index_time and calculated time difference in seconds, NaN values are removed for presentation')
+
+        columns_to_display = [col for col in defaultColumns + [groupbyColumn, refColumn, resultColumn] if col in df.columns]
+        filtered_df = df[df[resultColumn].notna()][columns_to_display]
+        DisplayGroupedData(filtered_df, groupbyColumn, columns_to_display, 5)
+    
+    return df
+
+# ----------------------------------------------------
+## Calculate Runs based on time difference (NEW)
+# ----------------------------------------------------
+# This functions caluclates the time between the reference columns
+
+def ComputeRunsOnTimeDifference(df: pd.DataFrame, timeColumn: str, resultColumn: str = 'c_run_number', defaultColumns: List[str] = ['index_time'], groupbyColumn: str = 'id_participant',
+                                    min_threshold: float = 360, max_threshold: float = 1800, debug: bool = True, size: int = 5) -> pd.DataFrame:
+    
+    print_log_separator(text = '>>> ComputeRunsOnTimeDifference for [' + timeColumn + '] by [' + groupbyColumn + '] to [' + resultColumn + ']')
+    
+    missing_columns = [col for col in [groupbyColumn] + defaultColumns if col not in df.columns]
+    if missing_columns:
+        print(f"Failed: The following columns are missing in the DataFrame: {missing_columns}")
+        return
+
+    run_number = 0
+    previous_id = None  # Variable to store the previous id_participant
+    
+    for index, row in df.iterrows():
+        if pd.isna(row[timeColumn]):
+            df.loc[index, resultColumn] = np.nan
+            continue  # Skip if reference_time_column is NaN
+        
+        current_id = row[groupbyColumn]  # Get current id_participant
+        
+        # Reset run_number to 0 if id_participant changes
+        if current_id != previous_id:
+            run_number = 0
+            previous_id = current_id
+        
+        time_difference = row[timeColumn]
+
+        if pd.isna(time_difference):
+            df.loc[index, resultColumn] = run_number
+            continue  # Skip if time_difference is NaN
+        
+        if max_threshold >= time_difference >= min_threshold:
+            df.loc[index, resultColumn] = run_number
+        else:
+            run_number += 1
+            df.loc[index, resultColumn] = run_number
+
+    df[resultColumn] = df[resultColumn].fillna(-1).astype(int)
+
+    if debug:
+        print('Results of index_time and calculated time difference in seconds, NaN values are removed for presentation')
+        columns_to_display = [col for col in defaultColumns + [groupbyColumn, timeColumn, resultColumn] if col in df.columns]
+        filtered_df = df[df['q_general_location_envi'].notna()][columns_to_display]
+        DisplayGroupedData(filtered_df, groupbyColumn, columns_to_display, size)
+
+    return df
+
+# ----------------------------------------------------
+## Calculate Runs based on time difference (NEW)
+# ----------------------------------------------------
+# This functions caluclates the time between the reference columns
+
+def MarkFalseRuns(df: pd.DataFrame, debug: bool = True, size: int = 5) -> pd.DataFrame:
+    # Initialize the new columns
+    df['run_valid'] = False
+    df['is_valid_run'] = np.nan
+    df['run_amount'] = np.nan
+
+
+    df.sort_values(['index_time'])
+    # Group by 'id_participant' and 'c_run_number' and count the occurrences
+    run_counts = df.groupby(['id_participant', 'c_run_number']).size().reset_index(name='counts')
+    
+
+    # Iterate over each participant
+    for participant_id in df['id_participant'].unique():
+        participant_runs = run_counts[run_counts['id_participant'] == participant_id]
+        
+        # Additional check for c_run_number == -1
+        invalid_run_indices = df[(df['id_participant'] == participant_id) & (df['c_run_number'] == -1)].index
+        df.loc[invalid_run_indices, 'is_valid_run'] = np.nan
+        
+        # Filter runs with counts >= 2, excluding c_run_number == -1
+        valid_runs = participant_runs[(participant_runs['counts'] >= 2) & (participant_runs['c_run_number'] != -1)]
+        
+        # Iterate over each valid run number for the current participant
+        for _, row in valid_runs.iterrows():
+            run_number = row['c_run_number']
+            
+            # Mark valid runs in the temporary columns
+            valid_run_indices = (df['id_participant'] == participant_id) & (df['c_run_number'] == run_number)
+            df.loc[valid_run_indices, 'is_valid_run'] = True
+            df.loc[valid_run_indices, 'run_amount'] = row['counts']
+
+    # Propagate the validity to all indices between the first and last valid occurrence
+    for participant_id in df['id_participant'].unique():
+        participant_data = df[df['id_participant'] == participant_id]
+        last_valid = False
+        occurrences = 0
+        
+        for index, row in participant_data.iterrows():
+            if row['is_valid_run'] == True:
+                occurrences += 1
+                last_valid = True
+                df.loc[index, 'run_valid'] = last_valid
+                # Reset validity if occurrences match the run amount
+                if row['run_amount'] == occurrences:
+                    last_valid = False
+                    occurrences = 0
+            elif pd.notna(row['is_valid_run']):
+                if row['run_amount'] >= 2:
+                    last_valid = True
+                    df.loc[index, 'run_valid'] = last_valid
+                if row['run_amount'] == occurrences:
+                    last_valid = False
+                    occurrences = 0
+                df.loc[index, 'run_valid'] = last_valid
+            elif pd.isna(row['is_valid_run']):
+                df.loc[index, 'run_valid'] = last_valid
+            else:
+                last_valid = False
+                occurrences = 0
+                df.loc[index, 'run_valid'] = last_valid
+
+    # if debug:
+    #     filtered_df = df[df['q_general_location_envi'].notna()][['index_time', 'id_participant', 'q_general_location_envi', 'c_run_number', 'is_valid_run', 'run_valid', 'run_amount']]
+    #     #display_grouped_data(filtered_df, 'id_participant', ['index_time', 'id_participant', 'q_general_location_envi', 'c_run_number', 'is_valid_run', 'run_valid', 'run_amount'], size)
+
+    #     # Save the relevant columns to a CSV file
+    #     df[['index_time', 'id_participant', 'q_general_location_envi', 'c_run_number', 'is_valid_run', 'run_valid', 'run_amount']].to_csv('processed_testing.csv', index=False)
+
+    return df
+
+# ----------------------------------------------------
+## Combine Columns in a dataframe based on a priority list (NEW)
+# ----------------------------------------------------
+# This fucntions...
+
+def CombineColumns(df: pd.DataFrame, columns_priority: List[str]):
+    return df[columns_priority].bfill(axis=1).iloc[:, 0]

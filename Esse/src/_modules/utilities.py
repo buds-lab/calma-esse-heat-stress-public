@@ -1,5 +1,5 @@
 from all_imports import *
-import _modules
+
 
 def test1():
     print(" ### test ### ")
@@ -118,30 +118,7 @@ def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEK
 
     return participant_data
 
-
-def import_scoria_and_add_to_dictionary(scoria_file_paths, dictionary, time_column: str, selected_columns, text_addition: str = 'Scoria_', df_time_column: str = 'timestamp', debug: bool = False):
-    for file_path in scoria_file_paths:
-        print(file_path)
-        df = pd.read_csv(file_path)
-        df[df_time_column] = pd.to_datetime(df[df_time_column], unit='s', origin='unix')
-        df[df_time_column] = df[df_time_column].dt.tz_localize('UTC').dt.tz_convert('Asia/Singapore')
-        df[df_time_column] = df[df_time_column].dt.strftime('%Y-%m-%d %H:%M:%S.%f%z')  # Format the time as desired
-        df.rename(columns={df_time_column: 'index_time'}, inplace=True)
-        renamed_columns = [text_addition + col for col in selected_columns]
-        df.rename(columns={col: text_addition + col for col in selected_columns}, inplace=True)
-        
-        # Retrieve the participant_id
-        filename = os.path.basename(file_path)
-        split_filename = filename.split('_')
-        participant_id = split_filename[0]
-        
-        df['id_participant'] = participant_id
-        
-        # Displaying first 5 rows
-        if debug:
-            display(df.head(5))
-        
-        all_selected_columns = time_column + renamed_columns + ['id_participant']
-        dictionary = _modules.add_dfdata_to_participant_id_in_dictionary(df, dictionary, participant_id, all_selected_columns)
-
-    return dictionary
+def DisplayGroupedData(df: pd.DataFrame, group_column: str, display_columns: list[str], items: int = 5):
+    grouped = df.groupby(group_column)
+    for name, group in grouped:
+        display(group[display_columns].head(items))

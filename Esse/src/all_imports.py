@@ -22,6 +22,10 @@ from haversine import haversine_vector, Unit
 import geopandas as gpd
 import subprocess
 
+from matplotlib.dates import DateFormatter
+from matplotlib.colors import ListedColormap
+import matplotlib.dates as mdates
+
 from typing import Dict
 from typing import Union
 from typing import List
