@@ -19,7 +19,8 @@ def StandartHeatmap(
     title: str = '', 
     subtitle: str = '', 
     xlabel: str = '', 
-    ylabel: str = ''
+    ylabel: str = '',
+    filepath: str = ''
 ):
     """
     Plot a heatmap with custom colors and other specified parameters.`
@@ -64,7 +65,17 @@ def StandartHeatmap(
     plt.text(0.0, 1.07, subtitle, ha='left', va='center', transform=plt.gca().transAxes, fontsize=7)
     plt.xlabel(xlabel, loc='center', labelpad=10, fontsize=7)
     plt.ylabel(ylabel, loc='center', labelpad=10, fontsize=7)
-    
+
+    if filepath != "":
+        directory = os.path.dirname(filepath)
+        
+        # Create directory if it doesn't exist
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        
+        plt.savefig(filepath)
+        print(f"Plot saved to {filepath}")
+
     plt.show()
 
     display(df)

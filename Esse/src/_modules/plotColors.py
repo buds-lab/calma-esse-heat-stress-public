@@ -88,3 +88,13 @@ cOrange = '#FC4100'
 cYellow = '#FFC55A'
 cGrey = "#6A757E" #tum_green_4
 cLightblue = "#9ABCE4" #tum_blue_light_dark
+
+color_lighthouse = '#F3F4F4'
+color_citylights = '#DFE6EA'
+color_coralpink = '#F88379'
+color_vulcanfire = '#E6390D'
+color_deepseablue = '#2A4B5A'
+color_elderberryblack = '#1E323B'
+
+color_list = [color_lighthouse, color_citylights, color_coralpink, color_vulcanfire, color_deepseablue, color_elderberryblack]
+gradient_lightvulcanelderberry = ListedColormap(interpolate_colors(color_list, 30))
