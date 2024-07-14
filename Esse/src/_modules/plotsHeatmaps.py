@@ -73,7 +73,7 @@ def StandartHeatmap(
         if not os.path.exists(directory):
             os.makedirs(directory)
         
-        plt.savefig(filepath)
+        plt.savefig(filepath, bbox_inches='tight', pad_inches=0.1)
         print(f"Plot saved to {filepath}")
 
     plt.show()
