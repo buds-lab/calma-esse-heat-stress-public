@@ -1,0 +1,72 @@
+
+Calculation (hour)
+
+Name of site = Singapore/Payalebar
+Latitude [°] = 1.370, Longitude [°] = 103.920, Altitude [m] = 18
+Climatic zone = V, 1
+
+Radiation model = Default (hour); Temperature model = Default (hour)
+Diffuse radiation model = Default (hour) (Perez)
+Radiation: 1991-2004
+Temperature: 2000-2019
+
+
+Month	H_Gh	H_Bn	H_Dh	Lg	Ld	N
+
+Jan	148	117	70	22254	12400	5
+Feb	150	101	77	24872	15597	5
+Mar	159	100	86	24000	15595	5
+Apr	140	89	76	21996	13948	5
+May	139	83	85	21013	14888	5
+Jun	132	84	75	20635	13616	5
+Jul	136	97	70	20518	12356	5
+Aug	139	86	78	20939	14112	4
+Sep	136	74	83	21250	15086	6
+Oct	135	71	84	20417	14427	5
+Nov	119	70	72	18674	12817	6
+Dec	119	61	79	18147	13061	6
+
+Year	1652	1032	936	21226	13992	5
+
+-------------------------------------------------------------------------------
+
+Month	Ta	Td	RH	p	DD	FF
+
+Jan	27.6	23.5	78	1011	23	3.4
+Feb	28.1	23.4	76	1011	45	3.6
+Mar	28.6	24.1	76	1011	45	2.7
+Apr	29.1	24.6	77	1011	45	1.7
+May	29.5	24.8	76	1011	180	1.9
+Jun	29.2	24.4	75	1011	180	2.2
+Jul	28.8	24.4	77	1011	180	2.6
+Aug	28.8	24.1	76	1011	180	2.7
+Sep	28.8	24.0	76	1011	180	2.4
+Oct	28.8	24.1	76	1011	180	1.9
+Nov	28.2	24.2	79	1011	23	1.7
+Dec	27.8	24.0	80	1011	23	2.6
+
+Year	28.6	24.1	77	1011	96	2.5
+
+================================================================================
+
+Legend:
+H_Gh:      Irradiation of global radiation horizontal
+H_Bn:      Irradiation of beam
+H_Dh:      Irradiation of diffuse radiation horizontal
+N:         Cloud cover fraction
+Lg:        Global illuminance          Ld:     
+
+Ta:        Air temperature             RH:     Relative humidity
+Td:        Dewpoint temperature        DD:     Wind direction
+FF:        Wind speed                  p:      Air pressure
+
+Radiation in  [kWh/m²]
+Temperature in  [°C]
+Pressure in  [hPa]
+Wind speed in  [m/s]
+Illuminance in  [lux]
+Measured parameters (WMO nr: 486940) = Gh, Ta, FF, Td, Rd
+Uncertainty of yearly values: Gh = 2%, Bn = 4 %, Ta = 0.3 °C
+Trend of Gh / decade = 1.9%
+Variability of Gh / year = 5.6%
+P90 and P10 of yearly Gh, referenced to average = 93.3%, 107.4%

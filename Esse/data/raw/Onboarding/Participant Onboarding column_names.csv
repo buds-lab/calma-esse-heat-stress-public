@@ -26,10 +26,8 @@ Can you say that you are used to the weather in Singapore?
 Can you say that you are satisfied with the weather in Singapore (outdoor weather conditions)?
 Do you suffer from sweating in Singapore?
 Do you enjoy being outdoor in Singapore?
-"What is your estimation of your time you spent outdoor (in hours per day) during the weekdays? 
-(Example: 8 = 8 hours/day)"
-"What is your estimation of your time spent outdoor (in hours per day) during the weekend? 
-(Example: 8 = 8 hours/day)"
+What is your estimation of your time you spent outdoor (in hours per day) during the weekdays?
+What is your estimation of your time spent outdoor (in hours per day) during the weekend?
 Do you seem to be aware of subtleties in your environment?
 "Are you easily overwhelmed by things like bright lights, strong smells, coarse fabrics, or sirens close by?"
 "Do you have a rich, complex inner life?"
@@ -116,9 +114,9 @@ Are you currently and/or will you take any additional medications during the stu
 Are you currently and/or will you take any additional medications during the study? - What was your approximate start date taking this medication?.1
 Are you currently and/or will you take any additional medications during the study? - What is the dosage of the medication (in mg).1
 Have you ever experienced any sideeffects from the abovementioned medications? Please state the medication name and the sideeffects.
-If female: When did you had your last period? (State as date dd.MM)
-If female: How long does your period last on average? (in days)
-"If female: Please rate the intensity of your menstrual period on a scale from 1 to 10, where 1 is very light, and 10 is extremely intense. - Click to write Choice 1"
+If female: When did you had your last period?
+If female: How long does your period last on average?
+"If female: Please rate the intensity of your menstrual period on a scale from 1 to 10, where 1 is very light, and 10 is extremely intense."
 Do you exercise on a usual basis?
 "On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Monday"
 "On a scale from 0:00h to 23:00h, slide to indicate the aproximatly typical time you exercise on the following days. - Tuesday"
@@ -134,3 +132,5 @@ On which of those days do you train outdoors? - Thursday
 On which of those days do you train outdoors? - Friday
 On which of those days do you train outdoors? - Saturday
 On which of those days do you train outdoors? - Sunday
+Start
+End
