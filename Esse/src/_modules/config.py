@@ -1,2 +1,3 @@
 #Settings
 API_KEY = 'RG2BjEFkzhmLUmNR0LdbaAAsF75EsWl6n07N2jOc'
+SCOPUS_API_KEY = '623bbb628d6686ba5cbe9c2c835eed33'
