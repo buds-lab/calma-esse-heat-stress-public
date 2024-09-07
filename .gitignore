@@ -3,3 +3,6 @@ Esse/src/config.py
 **/backup/
 **/Esse/data/processed/participant_data_local_df.csv
 **Esse/report/krigging_output/
+Esse/src/cozieMeasureDf.csv
+Esse/src/test.csv
+Esse/src/cozie.zip

@@ -1,5 +1,5 @@
 from all_imports import *
-
+import pytz
 
 def test1():
     print(" ### test ### ")
@@ -104,13 +104,50 @@ def query_participants_data(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEK
 
             df = df.reset_index(drop=False)  # Assign back to df
             df.rename(columns={'index': 'index_time'}, inplace=True)
-            #Error occurred for participant esse02: Already tz-aware, use tz_convert to convert.
 
             # Define the file path for the CSV
             #csv_filename = f"participant_{ID_PARTICIPANT}.csv"
             #csv_path = os.path.join(output_directory, csv_filename)
             #df.to_csv(csv_path)
             #print(csv_path)
+
+            participant_data[ID_PARTICIPANT] = df
+        except Exception as e:
+            print(f"Error occurred for participant {ID_PARTICIPANT}: {str(e)}")
+
+    return participant_data
+
+def query_participants_data_new(lst_participants, YOUR_TIMEZONE, ID_EXPERIMENT, WEEKS, API_KEY):
+    participant_data = {}
+    
+    for ID_PARTICIPANT in lst_participants:
+        print(f"Processing participant: {ID_PARTICIPANT}")
+        try:
+            payload = {'id_participant': ID_PARTICIPANT, 'id_experiment': ID_EXPERIMENT, 'weeks': WEEKS}
+            headers = {"Accept": "application/json", 'x-api-key': API_KEY}
+            response = requests.get('https://bni6kdfystbmmrulxl7jxonphi0ieqvg.lambda-url.ap-southeast-1.on.aws/', params=payload, headers=headers)
+            url = response.content  # Use directly without decoding
+            
+            # Download the file
+            with requests.get(url, stream=True) as r:
+                with open('cozie.zip', 'wb') as f:
+                    shutil.copyfileobj(r.raw, f)
+
+            # Read the CSV from the zip file
+            with open('cozie.zip', 'rb') as f:
+                df = pd.read_csv(f, compression={'method': 'zip', 'archive_name': 'sample.csv'}, low_memory=False)
+
+            df = df.drop(columns=['Unnamed: 0'])
+
+            # Convert 'index' column to datetime
+            df['index'] = pd.to_datetime(df['index'])
+
+            # Convert timezone to the specified timezone
+            df['index'] = df['index'].dt.tz_convert(YOUR_TIMEZONE)
+            
+            # Reset index to maintain consistent format
+            df = df.reset_index(drop=False)
+            df.rename(columns={'index': 'index_time'}, inplace=True)
 
             participant_data[ID_PARTICIPANT] = df
         except Exception as e:

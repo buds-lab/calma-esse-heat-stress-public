@@ -1,4 +1,5 @@
 Column Names,Data Types,Total Count,Unique Values
+level_0,int64,442428,59509
 index_time,"datetime64[ns, Asia/Singapore]",442428,433879
 id_participant,object,442428,14
 location_change,object,12921,1
