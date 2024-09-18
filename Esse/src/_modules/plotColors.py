@@ -98,3 +98,6 @@ color_elderberryblack = '#1E323B'
 
 color_list = [color_lighthouse, color_citylights, color_coralpink, color_vulcanfire, color_deepseablue, color_elderberryblack]
 gradient_lightvulcanelderberry = ListedColormap(interpolate_colors(color_list, 30))
+
+
+

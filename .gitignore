@@ -7,3 +7,5 @@ Esse/src/cozieMeasureDf.csv
 Esse/src/test.csv
 Esse/src/cozie.zip
 Esse/data/processed/cozieMeasureDf_validation.csv
+Esse/data/krigging/20240912/5mGrid_features_updated_norm.csv
+Esse/data/krigging/20240912/WS_features_computed_norm.csv
